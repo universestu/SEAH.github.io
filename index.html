@@ -146,16 +146,16 @@ window.onload = function(){
 
     function switchPress(){
         if(document.getElementById("cube-switch").className == "cube-switch active"){
-            microgear.chat("pieplug","OFF");
-        }else if(document.getElementById("cube-switch").className == "cube-switch"){
             microgear.chat("pieplug","ON");
+        }else if(document.getElementById("cube-switch").className == "cube-switch"){
+            microgear.chat("pieplug","OFF");
         }
     }
 
     microgear.on('message', function(topic,data) {
-        if(data=="ON"){
+        if(data=="OFF"){
             document.getElementById("cube-switch").className = "cube-switch active";
-        }else if(data=="OFF"){
+        }else if(data=="ON"){
             document.getElementById("cube-switch").className = "cube-switch";
         }
     });
