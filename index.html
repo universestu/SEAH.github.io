@@ -153,9 +153,9 @@ window.onload = function(){
     }
 
     microgear.on('message', function(topic,data) {
-        if(data=="ON"){
+        if(data=="OFF"){
             document.getElementById("cube-switch").className = "cube-switch active";
-        }else if(data=="OFF"){
+        }else if(data=="ON"){
             document.getElementById("cube-switch").className = "cube-switch";
         }
     });
