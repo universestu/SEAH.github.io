@@ -3,7 +3,7 @@
 /* GLOBAL */
 body
 {
-        border-top:5px solid #194fe6;
+        border-top:10px solid #194fe6;
         background:#ebe8de;
         font-family: 'Open Sans', sans-serif;
         color:#333333;
@@ -230,7 +230,7 @@ nav ul li a:hover
 {
         width:auto;
         height:70px;
-        background-color:#194fe6;
+        
         position:relative;
         font-family: 'Open Sans', sans-serif;
         color:#fff;
@@ -383,10 +383,15 @@ footer
         position:relative;
         clear:both;
         width:auto;
-        height:350px;
+        height:150px;
         background:#333333;
         color:#fff;
         font-size:18px;
+        margin: 0 auto;
+        text-align: right;
+       
+             bottom: 0;
+         left: 0;
 }
 
 footer .wrapper
@@ -593,6 +598,11 @@ footer .wrapper .column h4
         {
                 display:none;
         }
+        footer{
+position:relative;
+             bottom: 0;
+         left: 0;
+        }
 }
 
 @media (max-width: 915px)
@@ -649,6 +659,11 @@ footer .wrapper .column h4
                 font-size: 12px;
                 width: 230px;
         }
+         footer{
+            position:relative;
+             bottom: 0;
+         left: 0;
+        }
 }
 
 @media (max-width: 765px)
@@ -689,8 +704,11 @@ footer .wrapper .column h4
         }
         footer
         {
-                padding-bottom:70px;
+                margin: 0 auto;
                 height: auto;
+
+             bottom: 0;
+         left: 0;
         }
         footer .wrapper
         {
@@ -830,48 +848,48 @@ footer .wrapper .column h4
         }
         header p
         {
-                margin-left: 60px;
+                margin-left: 5px;
                 font-size:14px;
         }
 }
 cube-switch {
-    border-radius:10px;
+    border-radius:30px;
     border:1px solid rgba(0,0,0,0.4);
     box-shadow: 0 0 8px rgba(0,0,0,0.6), inset 0 100px 50px rgba(255,255,255,0.1);
     /* Prevents clics on the back */
     cursor:default;    
     display: none;
-    height: 75px;
+    height: 105px;
     position: relative;
     overflow:hidden;
     /* Prevents clics on the back */
     pointer-events:none;
-    width: 75px;
+    width: 105px;
     white-space: nowrap;
-    background:#333;
+    background:#2574A9;
     margin: 15px;
 }
 
 /* The switch */
 .cube-switch .switch {
     border:1px solid rgba(0,0,0,0.6);
-    border-radius:0.7em;
+    border-radius:3em;
     box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.3),
     inset 0 -7px 0 rgba(0,0,0,0.2),
     inset 0 50px 10px rgba(0,0,0,0.2),
     0 1px 0 rgba(255,255,255,0.2);
     display:block;
-    width: 60px;
-    height: 60px;
-    margin-left:-30px;
+    width: 90px;
+    height: 90px;
+    margin-left:-45px;
     margin-top:-30px;
     position:absolute;
     top: 50%;
     left: 50%;
-    width: 60px;
+    width: 90px;
  
-    background:#666;
+    background:#2574A9;
     transition: all 0.2s ease-out;
 
     /* Allows click */
@@ -888,7 +906,7 @@ cube-switch {
 }
 
 .cube-switch.active .switch {
-    background:#333;
+    background:#2574A9;
     box-shadow:
     inset 0 6px 0 rgba(255,255,255,0.1),
     inset 0 7px 0 rgba(0,0,0,0.2),
@@ -898,7 +916,7 @@ cube-switch {
 
 .cube-switch.active:after,
 .cube-switch.active:before {
-    background:#333; 
+    background:#2574A9; 
     box-shadow:
     0 1px 0 rgba(255,255,255,0.1),
     inset 1px 2px 1px rgba(0,0,0,0.5),
@@ -908,7 +926,7 @@ cube-switch {
 
 .cube-switch.active .switch:after,
 .cube-switch.active .switch:before {
-    background:#222;
+    background:#2574A9;
     border:none;
     margin-top:0;
     height:1px;
@@ -917,10 +935,9 @@ cube-switch {
 .cube-switch .switch-state {
     display: block;
     position: absolute;
-    left: 40%;
+    left: 38%;
     color: #FFF;
-
-    font-size: .5em;
+    font-size: 1em;
     text-align: center;
 }
 
