@@ -1,16 +1,42 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="theme-color" content="#2196F3">
-    <title>SaveEnergyAtHome-lite</title>
-
-    <!-- CSS  -->
-    <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
-    <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
-       <script src="js//microgear.js"></script>
- <script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEAH</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link href="lightbox/css/lightbox.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans|Baumans' rel='stylesheet' type='text/css'>
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <script src="js/vendor/modernizr.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    
+    <!-- include extern jQuery file but fall back to local file if extern one fails to load !-->
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js\/vendor\/1.7.2.jquery.min.js"><\/script>')</script>
+    
+    <script src="lightbox/js/lightbox.js"></script>
+    <script src="js/vendor/prefixfree.min.js"></script>
+    <script src="js//microgear.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/raphael.2.1.4.min.js"></script>
+    <script src="js/justgage.1.1.0.min.js"></script>
+    <!--[if lt IE 9]>
+    <style>
+    header
+    {
+    margin: 0 auto 20px auto;
+    }
+    #four_columns .img-item figure span.thumb-screen
+    {
+    display:none;
+    }
+    </style>
+    <![endif]-->
+    <script>
     window.onload = function(){
     //canvas initialization
     var canvas = document.getElementById("canvas");
@@ -141,108 +167,56 @@
     microgear.connect(APPID);
     
     </script>
-</head>
-<body id="top" class="scrollspy">
+    
+    
+  </head>
+  <body>
+    <header >
+      <div class="toggleMobile">
+        <span class="menu1"></span>
+        <span class="menu2"></span>
+        <span class="menu3"></span>
+      </div>
+      <div id="mobileMenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="light.html">Light</a></li>
+          <li><a href="fan.html">Fan</a></li>
+        </ul>
+      </div>
+      <div><img src="img/logo26.gif" style="vertical-align:bottom;width:60px;hight:10px;"></div>
+      <h1>SEAH</h1>
+      <p >Save Energy At Home</p>
+     
 
-<!-- Pre Loader -->
-<div id="loader-wrapper">
-    <div id="loader"></div>
- 
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
- 
-</div>
-
-<!--Navigation-->
- <div class="navbar-fixed">
-    <nav id="nav_f" class="default_color" role="navigation">
-        <div class="container">
-            <div class="nav-wrapper">
-            <a href="#" id="logo-container" class="brand-logo">SEAH</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#Controller">Controller</a></li>
-                    <li><a href="#Report">Report</a></li>
-                    <li><a href="#Setting">Setting</a></li>
-                    
-                    <li><a href="http://www.nectec.or.th/nsc/" target="_blank">NSC2016</a></li>
-                </ul>
-                <ul id="nav-mobile" class="side-nav">
-                  <li><a href="#Controller">Controller</a></li>
-                    <li><a href="#Report">Report</a></li>
-                    <li><a href="#Setting">Setting</a></li>
-                    
-                    <li><a href="http://www.nectec.or.th/nsc/" target="_blank">NSC2016</a></li>
-                </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-            </div>
-        </div>
-    </nav>
-</div>
-
-<!--Hero-->
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-        <h1 class="text_h center header cd-headline letters type">
-            <span>SEAH</span> 
-            <span class="cd-words-wrapper waiting">
-                <b class="is-visible">Save</b>
-                <b>Energy</b>
-                <b>At</b>
-                <b>Home</b>
-            </span>
-        </h1>
-    </div>
-</div>
-
-<!--Intro and service-->
-<div id="Controller" class="section scrollspy">
-    <div class="container" style="align-content: center;">
+      
+    </header>
+    <section class="container">
+      
+    </section>
+    
+    <section id="spacer">
+      <center>
+      
+      <article>
+        <p id="demo"></p>
         <div href="" class="cube-switch" id="cube-switch" onclick="switchPress()">
           <span class="switch">
             <span class="switch-state off">OFF</span>
             <span class="switch-state on">ON</span>
           </span>
         </div>
-    </div>
-</div>
-
-<!--Work-->
-<div class="section scrollspy" id="Report">
-    <div class="container" style="align-content: center;">
-    <p id="demo"></p>
-       <canvas id="canvas" width="300" height="300" > </canvas>
-    </div>
-</div>
-
-<!--Parallax-->
-<div class="parallax-container">
-    
-</div>
-
-<!--Team-->
-<div class="section scrollspy" id="Setting">
-    <div class="container" style="align-content: center;">
-       
-    </div>
-</div>
-
-<!--Footer-->
-<footer id="contact" class="page-footer default_color scrollspy">
-    <div class="container">  
-        
-    </div>
-    <div class="footer-copyright default_color">
-        <div class="container">
-            Edit by <a class="white-text" href="http://universestu.github.io">Eakkaphop Wongsorn</a>. Theme by <a class="white-text" href="http://materializecss.com/">materializecss</a>
-        </div>
-    </div>
-</footer>
-
-
-    <!--  Scripts-->
-    <script src="min/plugin-min.js"></script>
-    <script src="min/custom-min.js"></script>
-
+        <br>
+      </article><br><br><br>
+     
+      </center>
+    </section><center>
+    <section id="boxcontent">
+      <canvas id="canvas" width="300" height="300" > </canvas> <p id="demo" value="0"></p>
+    </center>  </section>
+    <footer>
+      Eakkaphop Wongsorn  <br> Computer Engineering Department <br> Chiang Mai University  <br> NSC2016
       
-    </body>
+    </footer>
+  </body>
 </html>
