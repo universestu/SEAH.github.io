@@ -21,7 +21,7 @@ createChart = function () {
 			events : {
 				load : function () {
 					var series2 = this.series.slice(0,this.series.length-1);
-					//handleLoaded(series2);
+					handleLoaded(series2);
 				}
 			}
 		},
@@ -106,14 +106,19 @@ createChart = function () {
 
 			// },
 
-			// plotOptions: {
+			 plotOptions: {
    //          	line: {
    //              	dataLabels: {
    //               	   enabled: false
    //              	},
    //              	enableMouseTracking: true
    //          	}
-   //      	},
+   				bar: {
+					dataLabels: {
+						enabled: true
+					}
+				}
+         	},
 
 			tooltip: {
 				pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
@@ -126,7 +131,6 @@ createChart = function () {
 
 	var updateChannelShow = function(data){
 		channel = $.extend(channel, data.channel);
-		//window.alert(suffix[1]);
 		setFields(data);
 		initData(data);
 	}
@@ -135,7 +139,7 @@ createChart = function () {
 		channel = $.extend(channel, data.channel);
 		setFields(data);
 
-		var template = $('<iframe src="show.html" width="100%" height="400px" style="border: 0px"></iframe>');
+		var template = $('<iframe src="show.html" width="100%" height="800px" style="border: 0px"></iframe>');
 		var params_clone = params;
 		delete params_clone.types;
 		delete params_clone.fields;
@@ -158,7 +162,7 @@ createChart = function () {
 
 	function initData(object){
 		console.log("Loading...");
-
+		var valueplot = [];
 		$.each(channel.list, function (i, name) {
 
 			var option = config;//{results : config.results, api_key : params.api_key}
@@ -172,15 +176,15 @@ createChart = function () {
 						if(record[fieldTxt+name]){
 							var parsedData = parseDataLog({ datetime:record.created_at,value:record[fieldTxt+name] });
 							list.push( [parsedData.datetime, parsedData.value ] )
+							valueplot[i] = parsedData.value.toFixed(2) ;
 						};
 					});
 				}
-
+				
 				// Store last upadted
 				channel.data[name].last_entry_id = data.channel.last_entry_id
 				channel.data[name].updated_at = data.channel.updated_at;
 				channel.updated_at = data.channel.updated_at;
-
 				isLoading[name] =  false;
 
 				seriesOptions[i] = {
@@ -197,10 +201,12 @@ createChart = function () {
 
 				if (seriesCounter === channel.names.length) {
 					createChart();
+					plotRealTime(valueplot);
 				}
 
 			});
 		});
+	
 		return;
 	}
 
@@ -305,7 +311,15 @@ createChart = function () {
 		data.value    = Number(data.value);
 		return data;
 	}
+	function plotRealTime(valueplot) {
 
+    	document.getElementById("Energy.value").innerHTML = valueplot[0];
+    	document.getElementById("Voltage.value").innerHTML = valueplot[1];
+    	document.getElementById("Current.value").innerHTML = valueplot[2];
+    	document.getElementById("Power.value").innerHTML = valueplot[3];
+    	console.log(valueplot);
+
+	}
 	function handleLoaded(series){
 
 		if (!config.dynamic) {
@@ -317,25 +331,32 @@ createChart = function () {
 
 			var option = {results : config.results, api_key : params.api_key, start:channel.updated_at}
 			var fetch_url = serverURL+params.channelID+'/feeds.json?'+$.param(option);
+			var valueplot = [];
 
 			$.getJSON(fetch_url,    function (data) {
-
+				
 				if (data.feeds){
 					$.each(data.feeds, function (index, record) {
-
+							
 						$.each(channel.list, function (i, name) {
-
+								
 							if(record.entry_id > channel.data[name].last_entry_id && record[fieldTxt+name]){
 								var parsedData = parseDataLog({ datetime:record.created_at,value:record[fieldTxt+name] });
 								series[i].addPoint([parsedData.datetime,parsedData.value], true, true);
 								channel.data[name].last_entry_id = record.entry_id;
+								valueplot[i] = parsedData.value.toFixed(2) ;
+								plotRealTime(valueplot);
+
 							};
 
 							channel.data[name].updated_at = data.channel.updated_at;
 							channel.updated_at = data.channel.updated_at;
+							
+							
 						});
 
 					});
+
 				}
 
 			});

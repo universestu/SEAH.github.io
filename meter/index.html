@@ -201,7 +201,7 @@
                                         <i class="fa fa-bolt fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
+                                        <div class="huge" id="Energy.value" >10.66</div>
                                         <div>Energy(Wh)</div>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
                                         <i class="fa fa-tasks fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
+                                        <div class="huge" id="Voltage.value">236.60</div>
                                         <div>Voltage(V)</div>
                                     </div>
                                 </div>
@@ -231,7 +231,7 @@
                                         <i class="fa fa-shopping-cart fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
+                                        <div class="huge" id="Current.value">0.00</div>
                                         <div>Current(A)</div>
                                     </div>
                                 </div>
@@ -246,7 +246,7 @@
                                         <i class="fa fa-support fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
+                                        <div class="huge" id="Power.value">10.76</div>
                                         <div>Power(Watt)</div>
                                     </div>
                                 </div>
@@ -434,6 +434,7 @@
   <script src="export-csv.js"></script>
   <script type="text/javascript" src="script.js"></script>
   <script>
+  
   $(function () {
     params = getUrlParameter();
     validateParams();
