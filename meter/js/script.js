@@ -139,7 +139,7 @@ createChart = function () {
 		channel = $.extend(channel, data.channel);
 		setFields(data);
 
-		var template = $('<iframe src="show.html" width="100%" height="800px" style="border: 0px"></iframe>');
+		var template = $('<iframe src="show.html" width="100%" height="400px" style="border: 0px"></iframe>');
 		var params_clone = params;
 		delete params_clone.types;
 		delete params_clone.fields;
