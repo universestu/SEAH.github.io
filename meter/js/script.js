@@ -25,11 +25,11 @@ createChart = function () {
 				}
 			}
 		},
-		
+
 		title: {
 			text: channel.name ,
 			style: {
-				color: '#2c3e50',
+				color: 'black',
 				fontSize: '36px'	
 			}
 		},
@@ -77,7 +77,7 @@ createChart = function () {
             	plotLines: [{
                 	value: 0,
                 	width: 2,
-                	color: 'white'
+                	color: 'Sliver'
             	}]
         	},
 			
