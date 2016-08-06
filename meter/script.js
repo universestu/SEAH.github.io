@@ -120,10 +120,7 @@ createChart = function () {
 				}
          	},
 
-			tooltip: {
-				pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
-				valueDecimals: 2
-			},
+		
 
 			series: seriesOptions
 		});
@@ -171,16 +168,41 @@ createChart = function () {
 			$.getJSON(fetch_url,    function (data) {
 
 				var list = []
+				var datamonth = []
+				var parsedData
 				if (data.feeds){
 					$.each(data.feeds, function (index, record) {
 						if(record[fieldTxt+name]){
-							var parsedData = parseDataLog({ datetime:record.created_at,value:record[fieldTxt+name] });
+
+							parsedData = parseDataLog({ datetime:record.created_at,value:record[fieldTxt+name] });
 							list.push( [parsedData.datetime, parsedData.value ] )
 							valueplot[i] = parsedData.value.toFixed(2) ;
+				
 						};
 					});
 				}
-				
+
+				current = {year:0,month:0,date:0,used:0};
+
+				for (var index in data.feeds) {
+					var record = data.feeds[index];
+					
+					record.date = new Date(record.created_at);
+					if(!record.field1) continue;
+
+
+						if(record.date.getDate() != current.date)
+							{
+							console.log(current);
+							console.log(current.date);
+						}
+						current.year = record.date.getYear();
+						current.date = record.date.getDate();
+						current.used = record.field1;
+					
+	}
+
+
 				// Store last upadted
 				channel.data[name].last_entry_id = data.channel.last_entry_id
 				channel.data[name].updated_at = data.channel.updated_at;
@@ -194,14 +216,18 @@ createChart = function () {
 					step: channel.data[name].type=="step" ? 'left' : false ,
 					tooltip: {valueSuffix: " " + suffix[i]}
 				};
+				
+
 
 				// As we're loading the data asynchronously, we don't know what order it will arrive. So
 				// we keep a counter and create the chart when all the data is loaded.
 				seriesCounter += 1;
 
 				if (seriesCounter === channel.names.length) {
+					console.log(seriesOptions)
 					createChart();
 					plotRealTime(valueplot);
+					
 				}
 
 			});
