@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEAH</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link href="lightbox/css/lightbox.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Baumans' rel='stylesheet' type='text/css'>
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <script src="js/vendor/modernizr.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    
+    <!-- include extern jQuery file but fall back to local file if extern one fails to load !-->
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js\/vendor\/1.7.2.jquery.min.js"><\/script>')</script>
+    
+    <script src="lightbox/js/lightbox.js"></script>
+    <script src="js/vendor/prefixfree.min.js"></script>
+    <script src="js//microgear.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/raphael.2.1.4.min.js"></script>
+    <script src="js/justgage.1.1.0.min.js"></script>
+    <!--[if lt IE 9]>
+    <style>
+    header
+    {
+    margin: 0 auto 20px auto;
+    }
+    #four_columns .img-item figure span.thumb-screen
+    {
+    display:none;
+    }
+    </style>
+    <![endif]-->
+    <script>
+    window.onload = function(){
+    //canvas initialization
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    //dimensions
+    var W = canvas.width;
+    var H = canvas.height;
+    //Variables
+    
+    var degrees = 0;
+    var new_degrees = 0;
+    var difference = 0;
+    var bgcolor = "#448AFF"; //green looks better to me
+    var color = "#2962FF";
+    var text;
+    var animation_loop, redraw_loop;
+    
+    function init()
+    {
+    //Clear the canvas everytime a chart is drawn
+    ctx.clearRect(0, 0, W, H);
+    
+    //Background 360 degree arc
+    ctx.beginPath();
+    ctx.strokeStyle = bgcolor;
+    ctx.lineWidth = 30;
+    ctx.arc(W/2, H/2, 100, 0, Math.PI*2, false); //you can see the arc now
+    ctx.stroke();
+    
+    //gauge will be a simple arc
+    //Angle in radians = angle in degrees * PI / 180
+    var radians = degrees * Math.PI / 180;
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 30;
+    //The arc starts from the rightmost end. If we deduct 90 degrees from the angles
+    //the arc will start from the topmost end
+    ctx.arc(W/2, H/2, 100, 0 - 90*Math.PI/180, radians - 90*Math.PI/180, false);
+    //you can see the arc now
+    ctx.stroke();
+    
+    //Lets add the text
+    ctx.fillStyle = color;
+    ctx.font = "50px bebas";
+    text = Math.floor(degrees/360*100) + "%";
+    //Lets center the text
+    //deducting half of text width from position x
+    text_width = ctx.measureText(text).width;
+    //adding manual value to position y since the height of the text cannot
+    //be measured easily. There are hacks but we will keep it manual for now.
+    ctx.fillText(text, W/2 - text_width/2, H/2 + 15);
+    }
+    
+    function draw()
+    {
+    //Cancel any movement animation if a new chart is requested
+    if(typeof animation_loop != undefined) clearInterval(animation_loop);
+    
+    //random degree from 0 to 360
+
+    var x = document.getElementById("demo").innerHTML;
+    console.log(x);
+    var c = parseFloat(x);;
+
+    new_degrees = (c/5)*360;
+    
+    
+    difference = new_degrees - degrees;
+    //This will animate the gauge to new positions
+    //The animation will take 1 second
+    //time for each frame is 1sec / difference in degrees
+    animation_loop = setInterval(animate_to, 1000/difference);
+    }
+    
+    //function to make the chart move to new degrees
+    function animate_to()
+    {
+    //clear animation loop if degrees reaches to new_degrees
+    if(degrees == new_degrees)
+    clearInterval(animation_loop);
+    
+    if(degrees < new_degrees)
+    degrees++;
+    else
+    degrees--;
+  
+    init();
+    }
+    
+    //Lets add some animation for fun
+    draw();
+    redraw_loop = setInterval(draw, 2000); //Draw a new chart every 2 seconds
+    }
+    </script>
+    <script>
+    const APPKEY = "TJUAdIDmM6O1fY1";
+    const APPSECRET = "7FSGZ5bbSj0hk350Kvv09Z54L";
+    const APPID = "NSC2016SEAH";
+    var microgear = Microgear.create({
+    gearkey: APPKEY,
+    gearsecret: APPSECRET
+    });
+    function switchPress(){
+    if(document.getElementById("cube-switch").className == "cube-switch active"){
+    microgear.chat("pieplug","ON");
+    }else if(document.getElementById("cube-switch").className == "cube-switch"){
+    microgear.chat("pieplug","OFF");
+    }
+    }
+    microgear.on('message', function(topic,data) {
+    if(data=="OFF"){
+    document.getElementById("cube-switch").className = "cube-switch active";
+    }else if(data=="ON"){
+    document.getElementById("cube-switch").className = "cube-switch";
+    }
+    else{
+    console.log('test');
+    var x = parseFloat(data);;
+     document.getElementById("demo").innerHTML = x;
+    }
+    });
+    microgear.on('connected', function() {
+    microgear.setname('controllerplug');
+    document.getElementById("cube-switch").className = "cube-switch active";
+    document.getElementById("cube-switch").style.display = "block";
+    });
+    microgear.resettoken();
+    microgear.connect(APPID);
+    
+    </script>
+    
+    
+  </head>
+  <body>
+    <header >
+      <div class="toggleMobile">
+        <span class="menu1"></span>
+        <span class="menu2"></span>
+        <span class="menu3"></span>
+      </div>
+      <div id="mobileMenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="light.html">Light</a></li>
+          <li><a href="fan.html">Fan</a></li>
+        </ul>
+      </div>
+      <div><img src="img/logo26.gif" style="vertical-align:bottom;width:60px;hight:10px;"></div>
+      <h1>SEAH</h1>
+      <p >Save Energy At Home</p>
+     
+
+      
+    </header>
+    <section class="container">
+      
+    </section>
+    
+    <section id="spacer">
+      <center>
+      
+      <article>
+        <p id="demo"></p>
+        <div href="" class="cube-switch" id="cube-switch" onclick="switchPress()">
+          <span class="switch">
+            <span class="switch-state off">OFF</span>
+            <span class="switch-state on">ON</span>
+          </span>
+        </div>
+        <br>
+      </article><br><br><br>
+     
+      </center>
+    </section><center>
+    <section id="boxcontent">
+      <canvas id="canvas" width="300" height="300" > </canvas> <p id="demo" value="0"></p>
+    </center>  </section>
+    <footer>
+      Eakkaphop Wongsorn  <br> Computer Engineering Department <br> Chiang Mai University  <br> NSC2016
+      
+    </footer>
+  </body>
+</html>
