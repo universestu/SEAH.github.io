@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <link href='css/fullcalendar.min.css' rel='stylesheet' />
+  <link href='css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+  <style>
+
+  
+  
+    #calendar {
+      
+      max-width: 900px;
+      margin-top: 15%;
+    }
+
+    .btn-primary {
+      background-color: #27ae60;
+    }
+  
+  </style>
+</head>
+
+<body>
+
+  <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark green">
+
+  <!-- Navbar brand -->
+  <a class="logo navbar-brand" href="#"><strong>Somsak's Farm</strong></a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+   <!-- Links -->
+   <ul class="navbar-nav mr-auto">
+      <li class="nav-item  waves-light" mdbWavesEffect>
+          <a class="nav-link" href="./overview.html">Home </a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" href="./setpoint.html">Set Point</a>
+      </li>
+      <li class="nav-item active waves-light" mdbWavesEffect>
+          <a class="nav-link" href="./Calendar.html">Calendar </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Alarm</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="./Log.html">Log</a>
+          <a class="dropdown-item" href="./History.html">History</a>
+
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link">Other</a>
+      </li>
+  </ul>
+  <ul class="navbar-nav nav-flex-icons">
+      
+      <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link">  <mdb-icon icon="bell" size="2x"></mdb-icon></a>
+      </li>
+
+      <li class="nav-item waves-light" mdbWavesEffect>
+        
+          <a class="nav-link">  <mdb-icon icon="user-circle-o" size="2x"></mdb-icon></a>
+      </li>
+    
+  </ul>
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="fa fa-user-circle fa-2x"></i>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+  <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->
+  <div style="height: 100vh">
+    <div class="flex-center flex-column">
+
+   
+      <div id="calendar"></div>
+ 
+    </div>
+  </div>
+  <!-- /Start your project here-->
+
+  <!-- SCRIPTS -->
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+  <script src='js/moment.min.js'></script>
+  <script src='js/fullcalendar.min.js'></script>
+  <script>
+    $('#calendar').fullCalendar({
+      themeSystem: 'bootstrap4',
+    header: {
+      left: 'prev,next today',
+      center: 'title,addEventButton',
+      right: 'month,agendaWeek,agendaDay,listDay,listWeek'
+    },
+    views: {
+        listDay: { buttonText: 'list day' },
+        listWeek: { buttonText: 'list week' }
+      },
+      
+      defaultView: 'agendaDay',
+      schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+    defaultDate: '2018-12-23',
+    nowIndicator:true,
+    navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      groupByResource: true,     
+       resources: [
+    { id: 'a', title: 'Room A' },
+    { id: 'b', title: 'Room B' }
+  ],
+  timezone:'local',
+      events: [
+      {"resourceId":"b","title":"Water pump","start":"2018-12-23T07:00:00+07:00","end":"2018-12-23T09:00:00+07:00",
+        color: '#ff9789'},
+      {"resourceId":"b","title":"Water pump","start":"2018-12-24T07:00:00+07:00","end":"2018-12-24T09:00:00+07:00",
+        color: '#ff9f89'}
+      ],
+
+    customButtons: {
+      addEventButton: {
+        text: 'Add new event',
+        click: function () {
+          var dateStr = prompt('Enter date in YYYY-MM-DD format');
+          var date = moment(dateStr);
+  
+          if (date.isValid()) {
+            $('#calendar').fullCalendar('renderEvent', {
+              title: 'Dynamic event',
+              start: date,
+              allDay: true
+            });
+          } else {
+            alert('Invalid Date');
+          }
+  
+        }
+      }
+    },
+    dayClick: function (date, jsEvent, view) {
+      var date = moment(date);
+  
+      if (date.isValid()) {
+        $('#calendar').fullCalendar('renderEvent', {
+          title: 'Dynamic event from date click',
+          start: date,
+          allDay: true
+        });
+      } else {
+        alert('Invalid');
+      }
+    },
+  });
+    </script>
+</body>
+
+</html>

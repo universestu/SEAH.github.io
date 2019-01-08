@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+img{
+    height: 128px;
+}
+
+.bottom:hover  { 
+  animation:0;
+    -webkit-transform: translate(0px, -39.1736px);
+            transform: translate(0px, -39.1736px);
+      transition: 200ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 200ms;
+    -webkit-transition-timing-function: ease-in-out;
+  
+  }
+.bottomright {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+  }
+
+  .bottomleft {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+  }
+
+  .bottommid {
+    position: fixed;
+    bottom: 20px;
+    left: 154px;
+    color: white;
+  }
+
+  .righttop {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    color: white;
+  }
+
+  .rightmid {
+    position: fixed;
+    top: 240px;
+    right: 20px;
+    color: white;
+  }
+
+  
+
+  .right:hover  { 
+    animation:0;
+    -webkit-transform: translate(-36px, 0px);
+            transform: translate(-36px, 0px);
+      transition: 200ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 200ms;
+    -webkit-transition-timing-function: ease-in-out;
+  
+  }
+</style>
+
+<body>
+
+  <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark green">
+
+  <!-- Navbar brand -->
+  <a class="logo navbar-brand" href="#"><strong>Somsak's Farm</strong></a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active waves-light" mdbWavesEffect>
+          <a class="nav-link" href="./overview.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" href="./setpoint.html">Set Point</a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" href="./Calendar.html">Calendar</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Alarm</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="./Log.html">Log</a>
+          <a class="dropdown-item" href="./History.html">History</a>
+
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link">Other</a>
+      </li>
+  </ul>
+  <ul class="navbar-nav nav-flex-icons">
+      
+      <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link">  <mdb-icon icon="bell" size="2x"></mdb-icon></a>
+      </li>
+
+      <li class="nav-item waves-light" mdbWavesEffect>
+        
+          <a class="nav-link">  <mdb-icon icon="user-circle-o" size="2x"></mdb-icon></a>
+      </li>
+    
+  </ul>
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="fa fa-user-circle fa-2x"></i>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+  <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->
+  <div style="height: 100vh">
+    <div class="flex-center flex-column">
+
+            
+      <div class="flex-center flex-column animated bounceInDown ">
+        <svg xmlns="http://www.w3.org/2000/svg" height="600" viewBox="0 0 800 600">
+          <g #g4>
+            <g id="ground1">
+              <polygon fill="#A97C50" points="503.145,325.292 400.438,385.095 296.856,325.293 399.764,265.49 		"/>
+              <polygon fill="#8B5E3C" points="503.145,325.292 503.145,338.725 400.438,398.529 400.438,385.095 		"/>
+              <polygon fill="#603E29" points="400.438,385.095 400.438,398.529 296.856,338.727 296.856,325.293 		"/>
+              <polygon fill="#93CB2F" points="503.145,315.945 400.438,375.748 296.856,315.946 399.764,256.143 		"/>
+              <polygon fill="#81B329" points="503.145,315.945 503.145,329.378 400.438,389.181 400.438,375.748 		"/>
+              <polygon fill="#709C24" points="400.438,375.748 400.438,389.181 296.856,329.379 296.856,315.946 		"/>
+              <path fill="#8ABF2C" d="M397.044,346.551c1.851,1.068,1.86,2.801,0.021,3.87c-1.839,1.069-4.829,1.068-6.682,0
+                c-1.85-1.068-1.859-2.801-0.021-3.87C392.201,345.483,395.193,345.483,397.044,346.551z"/>
+              <path fill="#8ABF2C" d="M476.266,310.538c1.852,1.069,1.859,2.801,0.021,3.87c-1.839,1.069-4.829,1.069-6.682,0
+                c-1.85-1.068-1.859-2.801-0.021-3.87C471.423,309.47,474.415,309.47,476.266,310.538z"/>
+              <path fill="#8ABF2C" d="M451.602,316.229c1.852,1.069,1.859,2.802,0.021,3.87c-1.839,1.069-4.829,1.069-6.681,0
+                c-1.852-1.068-1.86-2.801-0.021-3.87C446.759,315.162,449.751,315.162,451.602,316.229z"/>
+              <path fill="#8ABF2C" d="M333.932,313.384c1.853,1.069,1.86,2.801,0.022,3.87c-1.84,1.069-4.83,1.069-6.681,0
+                c-1.852-1.068-1.861-2.801-0.022-3.87C329.09,312.315,332.082,312.315,333.932,313.384z"/>
+              <path fill="#8ABF2C" d="M352.904,320.973c1.852,1.068,1.859,2.801,0.021,3.869c-1.839,1.069-4.829,1.069-6.68,0
+                c-1.851-1.069-1.861-2.801-0.022-3.87C348.063,319.903,351.054,319.905,352.904,320.973z"/>
+              <path fill="#8ABF2C" d="M380.454,278.285c1.852,1.069,1.86,2.801,0.022,3.87c-1.84,1.069-4.83,1.069-6.682,0
+                c-1.851-1.068-1.859-2.801-0.021-3.87C375.612,277.217,378.604,277.216,380.454,278.285z"/>
+              <path fill="#8ABF2C" d="M429.783,283.028c1.851,1.069,1.859,2.801,0.021,3.87s-4.829,1.069-6.681,0
+                c-1.852-1.068-1.86-2.801-0.021-3.87C424.94,281.96,427.934,281.96,429.783,283.028z"/>
+              <path fill="#8ABF2C" d="M420.234,351.254c1.852,1.068,1.859,2.801,0.021,3.87c-1.839,1.068-4.83,1.068-6.681,0
+                c-1.852-1.068-1.861-2.801-0.021-3.87C415.393,350.186,418.385,350.186,420.234,351.254z"/>
+            </g>
+          </g>
+          <g #g3>
+            <g id="ground1">
+              <polygon fill="#A97C50" points="398.145,385.292 295.438,445.096 191.856,385.293 294.764,325.49 		"/>
+              <polygon fill="#8B5E3C" points="398.145,385.292 398.145,398.725 295.438,458.529 295.438,445.096 		"/>
+              <polygon fill="#603E29" points="295.438,445.096 295.438,458.529 191.856,398.727 191.856,385.293 		"/>
+              <polygon fill="#93CB2F" points="398.145,375.945 295.438,435.748 191.856,375.946 294.764,316.143 		"/>
+              <polygon fill="#81B329" points="398.145,375.945 398.145,389.378 295.438,449.182 295.438,435.748 		"/>
+              <polygon fill="#709C24" points="295.438,435.748 295.438,449.182 191.856,389.379 191.856,375.946 		"/>
+              <path fill="#8ABF2C" d="M292.044,406.551c1.852,1.068,1.86,2.801,0.021,3.87s-4.829,1.068-6.682,0
+                c-1.85-1.067-1.859-2.801-0.021-3.87C287.201,405.482,290.193,405.482,292.044,406.551z"/>
+              <path fill="#8ABF2C" d="M371.266,370.538c1.852,1.069,1.859,2.801,0.021,3.87c-1.839,1.069-4.829,1.069-6.682,0
+                c-1.85-1.068-1.859-2.801-0.021-3.87C366.423,369.47,369.415,369.47,371.266,370.538z"/>
+              <path fill="#8ABF2C" d="M346.602,376.229c1.852,1.069,1.859,2.802,0.021,3.87c-1.839,1.069-4.829,1.069-6.681,0
+                c-1.852-1.068-1.86-2.801-0.021-3.87C341.759,375.162,344.751,375.162,346.602,376.229z"/>
+              <path fill="#8ABF2C" d="M228.932,373.384c1.853,1.069,1.86,2.801,0.022,3.87c-1.84,1.069-4.83,1.069-6.681,0
+                c-1.852-1.068-1.861-2.801-0.022-3.87C224.09,372.315,227.082,372.315,228.932,373.384z"/>
+              <path fill="#8ABF2C" d="M247.904,380.973c1.852,1.068,1.859,2.801,0.021,3.869c-1.839,1.069-4.829,1.069-6.68,0
+                c-1.851-1.069-1.861-2.801-0.022-3.87C243.063,379.903,246.054,379.905,247.904,380.973z"/>
+              <path fill="#8ABF2C" d="M275.454,338.285c1.852,1.069,1.86,2.801,0.021,3.87c-1.839,1.069-4.829,1.069-6.681,0
+                c-1.851-1.068-1.86-2.801-0.021-3.87C270.612,337.217,273.604,337.216,275.454,338.285z"/>
+              <path fill="#8ABF2C" d="M324.783,343.028c1.851,1.069,1.859,2.801,0.021,3.87s-4.829,1.069-6.681,0
+                c-1.851-1.068-1.86-2.801-0.021-3.87C319.94,341.96,322.933,341.96,324.783,343.028z"/>
+              <path fill="#8ABF2C" d="M315.234,411.254c1.852,1.068,1.859,2.801,0.021,3.87c-1.839,1.067-4.83,1.067-6.681,0
+                c-1.852-1.067-1.861-2.801-0.021-3.87C310.393,410.186,313.385,410.186,315.234,411.254z"/>
+            </g>
+          </g>
+          <g #g2>
+            <g id="ground1">
+              <polygon fill="#A97C50" points="608.145,385.292 505.438,445.096 401.856,385.293 504.764,325.49 		"/>
+              <polygon fill="#8B5E3C" points="608.145,385.292 608.145,398.725 505.438,458.529 505.438,445.096 		"/>
+              <polygon fill="#603E29" points="505.438,445.096 505.438,458.529 401.856,398.727 401.856,385.293 		"/>
+              <polygon fill="#93CB2F" points="608.145,375.945 505.438,435.748 401.856,375.946 504.764,316.143 		"/>
+              <polygon fill="#81B329" points="608.145,375.945 608.145,389.378 505.438,449.182 505.438,435.748 		"/>
+              <polygon fill="#709C24" points="505.438,435.748 505.438,449.182 401.856,389.379 401.856,375.946 		"/>
+              <path fill="#8ABF2C" d="M502.044,406.551c1.851,1.068,1.86,2.801,0.021,3.87s-4.829,1.068-6.682,0
+                c-1.85-1.067-1.859-2.801-0.021-3.87C497.201,405.482,500.193,405.482,502.044,406.551z"/>
+              <path fill="#8ABF2C" d="M581.266,370.538c1.852,1.069,1.859,2.801,0.021,3.87c-1.839,1.069-4.829,1.069-6.682,0
+                c-1.85-1.068-1.859-2.801-0.021-3.87C576.423,369.47,579.415,369.47,581.266,370.538z"/>
+              <path fill="#8ABF2C" d="M556.602,376.229c1.852,1.069,1.859,2.802,0.021,3.87c-1.839,1.069-4.829,1.069-6.681,0
+                c-1.852-1.068-1.86-2.801-0.021-3.87C551.759,375.162,554.751,375.162,556.602,376.229z"/>
+              <path fill="#8ABF2C" d="M438.932,373.384c1.853,1.069,1.86,2.801,0.022,3.87c-1.84,1.069-4.83,1.069-6.681,0
+                c-1.852-1.068-1.861-2.801-0.022-3.87C434.09,372.315,437.082,372.315,438.932,373.384z"/>
+              <path fill="#8ABF2C" d="M457.904,380.973c1.852,1.068,1.859,2.801,0.021,3.869c-1.839,1.069-4.829,1.069-6.68,0
+                c-1.851-1.069-1.861-2.801-0.022-3.87C453.063,379.903,456.054,379.905,457.904,380.973z"/>
+              <path fill="#8ABF2C" d="M485.454,338.285c1.852,1.069,1.86,2.801,0.022,3.87c-1.84,1.069-4.83,1.069-6.682,0
+                c-1.851-1.068-1.859-2.801-0.021-3.87C480.612,337.217,483.604,337.216,485.454,338.285z"/>
+              <path fill="#8ABF2C" d="M534.783,343.028c1.851,1.069,1.859,2.801,0.021,3.87s-4.829,1.069-6.681,0
+                c-1.852-1.068-1.86-2.801-0.021-3.87C529.94,341.96,532.934,341.96,534.783,343.028z"/>
+              <path fill="#8ABF2C" d="M525.234,411.254c1.852,1.068,1.859,2.801,0.021,3.87c-1.839,1.067-4.83,1.067-6.681,0
+                c-1.852-1.067-1.861-2.801-0.021-3.87C520.393,410.186,523.385,410.186,525.234,411.254z"/>
+            </g>
+          </g>
+          <g #g1>
+            <g id="ground1">
+              <polygon fill="#A97C50" points="503.145,445.292 400.438,505.095 296.856,445.293 399.764,385.49 		"/>
+              <polygon fill="#8B5E3C" points="503.145,445.292 503.145,458.725 400.438,518.529 400.438,505.095 		"/>
+              <polygon fill="#603E29" points="400.438,505.095 400.438,518.529 296.856,458.727 296.856,445.293 		"/>
+              <polygon fill="#93CB2F" points="503.145,435.945 400.438,495.748 296.856,435.946 399.764,376.143 		"/>
+              <polygon fill="#81B329" points="503.145,435.945 503.145,449.378 400.438,509.181 400.438,495.748 		"/>
+              <polygon fill="#709C24" points="400.438,495.748 400.438,509.181 296.856,449.379 296.856,435.946 		"/>
+              <path fill="#8ABF2C" d="M397.044,466.551c1.851,1.068,1.86,2.801,0.021,3.87s-4.829,1.068-6.682,0
+                c-1.85-1.067-1.859-2.801-0.021-3.87C392.201,465.483,395.193,465.483,397.044,466.551z"/>
+              <path fill="#8ABF2C" d="M476.266,430.538c1.852,1.069,1.859,2.801,0.021,3.87c-1.839,1.068-4.829,1.068-6.682,0
+                c-1.85-1.068-1.859-2.801-0.021-3.87C471.423,429.471,474.415,429.471,476.266,430.538z"/>
+              <path fill="#8ABF2C" d="M451.602,436.229c1.852,1.069,1.859,2.803,0.021,3.871c-1.839,1.068-4.829,1.068-6.681,0
+                s-1.86-2.802-0.021-3.871C446.759,435.162,449.751,435.162,451.602,436.229z"/>
+              <path fill="#8ABF2C" d="M333.932,433.384c1.853,1.069,1.86,2.802,0.022,3.87c-1.84,1.069-4.83,1.069-6.681,0
+                c-1.852-1.068-1.861-2.801-0.022-3.87S332.082,432.314,333.932,433.384z"/>
+              <path fill="#8ABF2C" d="M352.904,440.973c1.852,1.068,1.859,2.801,0.021,3.869c-1.839,1.069-4.829,1.069-6.68,0
+                c-1.851-1.068-1.861-2.801-0.022-3.869C348.063,439.902,351.054,439.905,352.904,440.973z"/>
+              <path fill="#8ABF2C" d="M380.454,398.285c1.852,1.069,1.86,2.801,0.022,3.87c-1.84,1.069-4.83,1.069-6.682,0
+                c-1.851-1.068-1.859-2.801-0.021-3.87C375.612,397.217,378.604,397.216,380.454,398.285z"/>
+              <path fill="#8ABF2C" d="M429.783,403.027c1.851,1.07,1.859,2.802,0.021,3.871c-1.839,1.068-4.829,1.068-6.681,0
+                s-1.86-2.801-0.021-3.871C424.94,401.96,427.934,401.96,429.783,403.027z"/>
+              <path fill="#8ABF2C" d="M420.234,471.254c1.852,1.068,1.859,2.801,0.021,3.87c-1.839,1.068-4.83,1.068-6.681,0
+                c-1.852-1.068-1.861-2.801-0.021-3.87C415.393,470.186,418.385,470.186,420.234,471.254z"/>
+            </g>
+          </g>
+          <g #splashLines>
+            <path fill="none" stroke="#ECF0F1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M447.355,437.587
+              l-21.8,12.601 M429.556,416.787l-12.601,21.8 M401.855,409.287v25.1 M374.056,416.787l12.6,21.8 M356.355,437.587l21.8,12.601"/>
+          </g>
+          </svg>
+          
+   
+  </div>
+  <img src="./assets/bua.png" alt="" class="right righttop animated bounce">
+  <img src="./assets/fert.png" alt="" class="right rightmid animated bounce">
+
+  <img src="./assets/sp.png" alt="" class="bottom  bottomleft animated bounce">
+  <img src="./assets/water.png" alt=""  class="bottom bottommid  animated bounce">
+
+    </div>
+  </div>
+  <!-- /Start your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+</body>
+
+</html>
